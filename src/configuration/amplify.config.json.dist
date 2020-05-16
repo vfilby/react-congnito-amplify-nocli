@@ -1,0 +1,15 @@
+{
+  "Auth": {
+    "mandatorySignIn": true,
+    "region": "<Your region, e.g. us-west-2>",
+    "userPoolId": "<user pool Id>",
+    "userPoolWebClientId": "<app client id>",
+    "oauth": {
+      "domain": "<your cognito domain>",
+      "scope": ["phone", "email", "profile", "openid", "aws.cognito.signin.user.admin"],
+      "redirectSignIn": "http://localhost:3000/callback",
+      "redirectSignOut": "http://localhost:3000/",
+      "responseType": "code"
+    }
+  }
+}

@@ -3,31 +3,14 @@ import React, { Component } from 'react';
 import './App.css';
 import OAuthButton from './OAuthButton';
 import Amplify, { Auth, Hub } from 'aws-amplify';
-import oauth from "./configuration/auth.config.json";
+
+
+// Pulling from a custom json file rather than ./aws-exports
+// Original: import awsconfig from './aws-exports'; // your Amplify configuration
 import amplify_config from "./configuration/amplify.config.json";
-//import awsconfig from './aws-exports'; // your Amplify configuration
-
-// your Cognito Hosted UI configuration
-// const oauth = {
-//   domain: 'noublie-auth.auth.us-west-2.amazoncognito.com',
-//   scope: ['phone', 'email', 'profile', 'openid', 'aws.cognito.signin.user.admin'],
-//   redirectSignIn: 'http://localhost:3000/callback',
-//   redirectSignOut: 'http://localhost:3000/',
-//   responseType: 'code' // or 'token', note that REFRESH token will only be generated when the responseType is code
-// };
-//
-// const amplify_config = {
-//   Auth: {
-//     mandatorySignIn: true,
-//     region: "us-west-2",
-//     userPoolId: "us-west-2_taXJq8wLD",
-//     userPoolWebClientId: "7rn2s5vtmnmim04p6cvom515c1"
-//   }
-// };
-
 
 Amplify.configure(amplify_config);
-Auth.configure({ oauth });
+Auth.configure();
 
 class App extends Component {
   constructor(props) {
